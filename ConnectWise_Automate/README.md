@@ -1,5 +1,6 @@
-  
-  
+Import the CyberCNS_Agent_Install.xml file into your Automate instance  
+
+
 This script will create the following EDFs (Extra Data Fields):
 * **Client**:     
   * **CNS Company ID** (use the identifier from CyberCNS for the client)
