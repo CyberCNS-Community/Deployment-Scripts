@@ -12,7 +12,9 @@
 cybercns_hostname=$1
 cybercns_company_id=$2
 
-yum -y install docker docker-compose curl 
+which yum && yum -y install docker docker-compose curl 
+which apt && apt-get -y install docker docker-compose curl
+
 systemctl enable docker
 systemctl start docker
 
