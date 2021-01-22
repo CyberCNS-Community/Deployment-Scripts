@@ -14,5 +14,5 @@ You will need to change the Global Variable for **cns-domain** in this script to
 
 Here is what the script should look like:
 
-<img src="https://github.com/CyberCNS-Community/Deployment-Scripts/blob/main/ConnectWise_Automate/Screenshot%20from%202021-01-22%2013-24-35.png">
-<img src="https://github.com/CyberCNS-Community/Deployment-Scripts/blob/main/ConnectWise_Automate/Screenshot%20from%202021-01-22%2013-26-00.png">
+<img src="https://github.com/CyberCNS-Community/Deployment-Scripts/blob/main/ConnectWise_Automate/scriptview1.png">
+<img src="https://github.com/CyberCNS-Community/Deployment-Scripts/blob/main/ConnectWise_Automate/scriptview2.png">
