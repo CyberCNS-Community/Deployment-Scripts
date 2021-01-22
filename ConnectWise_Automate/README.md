@@ -9,5 +9,5 @@ You will need to change the *Global Variable* in this script to match your Cyber
 
 Here is what the script should look like:
 
-
+<img src="https://github.com/CyberCNS-Community/Deployment-Scripts/blob/main/ConnectWise_Automate/Screenshot%20from%202021-01-22%2013-24-35.png">
 
