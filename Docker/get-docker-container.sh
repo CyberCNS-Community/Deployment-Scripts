@@ -18,13 +18,15 @@ cybercns_hostname=$1
 cybercns_company_id=$2
 
 
-if ! (which docker-compose); then  
+if ! (which docker-compose); then
+  echo "Docker Compose was not found on your system. Attempting to install it using standard distro utils"
+  which dnf && dnf -y install podman-compose
   which yum && yum -y install docker docker-compose curl 
   which apt && apt-get -y install docker docker-compose curl
 fi
 
 if ! (which docker-compose); then 
-  echo "Unable to find docker-compose on this system. Exiting"
+  echo "Still unable to find docker-compose on this system. You will need to install docker-compose manually. Exiting"
   exit 100
 fi
 
