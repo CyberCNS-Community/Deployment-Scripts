@@ -12,15 +12,25 @@
 cybercns_hostname=$1
 cybercns_company_id=$2
 
-which yum && yum -y install docker docker-compose curl 
-which apt && apt-get -y install docker docker-compose curl
+
+if ! (which docker-compose); then  
+  which yum && yum -y install docker docker-compose curl 
+  which apt && apt-get -y install docker docker-compose curl
+fi
+
+if ! (which docker-compose); then 
+  echo "Unable to find docker-compose on this system. Exiting"
+  exit 100
+fi
 
 systemctl enable docker
 systemctl start docker
 
-mkdir -p /opt/CyberCNSAgent/{logs,salt,minion,cache,salt/minion.d}
-echo 'id: '$cybercns_company_id > /opt/CyberCNSAgent/salt/minion.d/minion.conf
-echo 'master: '$cybercns_hostname >> /opt/CyberCNSAgent/salt/minion.d/minion.conf
+containerdir="/usr/local/containers/cybercns-$cybercns_site_id"
+mkdir -p $containerdir/{logs,salt,minion,cache,salt/minion.d}
+
+echo 'id: '$cybercns_site_id > $containerdir/salt/minion.d/minion.conf
+echo 'master: '$cybercns_hostname >> $containerdir/salt/minion.d/minion.conf
 echo '
 grains_cache: True
 grains_cache_expiration: 86400
@@ -28,29 +38,30 @@ random_reauth_delay: 60
 recon_default: 1000
 recon_max: 59000
 recon_randomize: True
-' >> /opt/CyberCNSAgent/salt/minion.d/minion.conf
+' >> $containerdir/salt/minion.d/minion.conf
 
-echo '
+echo """
 version: "3"
 services:
   cybercnsvulnerabilityagent:
     container_name: cyberCNSAgent
     privileged: true
-    image: "cybercnssaas/cybercns_agent"
+    image: "docker.io/cybercnssaas/cybercns_agent"
     network_mode: host
     # environment:
     #   LOG_LEVEL: "debug"
     restart: always
     volumes:
-      - "/opt/CyberCNSAgent/logs:/opt/CyberCNSAgent/logs"
-      - "/opt/CyberCNSAgent/salt:/etc/salt"
-      - "/opt/CyberCNSAgent/minion:/var/lib/salt/pki/minion"
-      - "/opt/CyberCNSAgent/cache:/var/cache/salt"
-' > /opt/CyberCNSAgent/docker-compose.yaml
+      - \"$containerdir/logs:/opt/CyberCNSAgent/logs\"
+      - \"$containerdir/salt:/etc/salt\"
+      - \"$containerdir/minion:/var/lib/salt/pki/minion\"
+      - \"$containerdir/cache:/var/cache/salt\"
+""" > $containerdir/docker-compose.yaml
 
-cd /opt/CyberCNSAgent/
-docker-compose pull
-docker-compose up -d 
+cd $containerdir
+$compose pull
+$compose up -d 
+
 
 
 
