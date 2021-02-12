@@ -23,12 +23,13 @@ if ! (which docker-compose); then
   which dnf && dnf -y install podman-compose curl
   which yum && yum -y install docker docker-compose curl 
   which apt && apt-get -y install docker docker-compose curl
+  if ! (which docker-compose); then 
+    echo "Still unable to find docker-compose on this system. You will need to install docker-compose manually. Exiting"
+    exit 100
+  fi
 fi
 
-if ! (which docker-compose); then 
-  echo "Still unable to find docker-compose on this system. You will need to install docker-compose manually. Exiting"
-  exit 100
-fi
+
 
 systemctl enable docker
 systemctl start docker
