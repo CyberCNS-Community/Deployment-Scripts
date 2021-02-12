@@ -15,7 +15,7 @@ fi
 (hostname | grep -qi "perch") && ifconfig bridge0 && echo "Exiting because Bridged Interface" && exit
 
 cybercns_hostname=$1
-cybercns_company_id=$2
+cybercns_site_id=$2
 
 if ! (which docker-compose); then
   echo "Docker Compose was not found on your system. Attempting to install it using standard distro utils"
