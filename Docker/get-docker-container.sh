@@ -20,7 +20,7 @@ cybercns_company_id=$2
 
 if ! (which docker-compose); then
   echo "Docker Compose was not found on your system. Attempting to install it using standard distro utils"
-  which dnf && dnf -y install podman-compose
+  which dnf && dnf -y install podman-compose curl
   which yum && yum -y install docker docker-compose curl 
   which apt && apt-get -y install docker docker-compose curl
 fi
