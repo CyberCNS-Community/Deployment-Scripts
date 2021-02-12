@@ -30,8 +30,11 @@ fi
 
 compose=$(which docker-compose)
 
-systemctl enable docker
-systemctl start docker
+# Set docker daemon to run if system supports it
+if (which systemctl) ; then
+    systemctl enable docker
+    systemctl start docker
+fi
 
 containerdir="/usr/local/containers/cybercns-$cybercns_site_id"
 mkdir -p $containerdir/{logs,salt,minion,cache,salt/minion.d}
@@ -68,7 +71,4 @@ services:
 cd $containerdir
 $compose pull
 $compose up -d 
-
-
-
 
