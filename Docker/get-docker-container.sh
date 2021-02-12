@@ -5,14 +5,13 @@
 # example: "./get-docker-container.sh mycompany.mycybercns.com 5f17172880000ffffffff"
 
 
-# silently quit if this a Perch Sensor is in pass-thru mode
-# we've had some cases where the traffic stops passing when the container boots
-
 if [[ $# -ne 2 ]]; then
     echo "ERROR: Need to pass the correct parameters. Usage: ./get-docker-container.sh <My CNS URL> <site identifier>"
     exit 2
 fi
 
+# silently quit if this a Perch Sensor is in pass-thru mode
+# we've had some cases where the traffic stops passing when the container boots
 (hostname | grep -qi "perch") && ifconfig bridge0 && echo "Exiting because Bridged Interface" && exit
 
 cybercns_hostname=$1
