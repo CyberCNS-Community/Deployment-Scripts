@@ -17,7 +17,6 @@ fi
 cybercns_hostname=$1
 cybercns_company_id=$2
 
-
 if ! (which docker-compose); then
   echo "Docker Compose was not found on your system. Attempting to install it using standard distro utils"
   which dnf && dnf -y install podman-compose curl
@@ -28,8 +27,6 @@ if ! (which docker-compose); then
     exit 100
   fi
 fi
-
-
 
 systemctl enable docker
 systemctl start docker
