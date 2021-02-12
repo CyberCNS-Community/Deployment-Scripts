@@ -28,6 +28,8 @@ if ! (which docker-compose); then
   fi
 fi
 
+compose=$(which docker-compose)
+
 systemctl enable docker
 systemctl start docker
 
