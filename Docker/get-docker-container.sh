@@ -51,12 +51,12 @@ recon_randomize: True
 ' >> $containerdir/salt/minion.d/minion.conf
 
 echo """
-version: "3"
+version: \"3\"
 services:
   cybercnsvulnerabilityagent:
     container_name: cyberCNSAgent
     privileged: true
-    image: "docker.io/cybercnssaas/cybercns_agent"
+    image: \"docker.io/cybercnssaas/cybercns_agent\"
     network_mode: host
     # environment:
     #   LOG_LEVEL: "debug"
