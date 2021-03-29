@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Written by Tim Fournet 3/29/2021
+# This is a bash script, it can be run either from a Linux host, or from the Azure Cloud Shell.
+# To run from the cloud shell, use this command
+# curl https://raw.githubusercontent.com/CyberCNS-Community/Deployment-Scripts/main/AzureAD/Create-CyberCNSADAppRegistration.sh | sh
+# This will create an Azure AD App Registration with the permissions required, as outlined by the CyberCNS Documentatino at 
+# https://cybercns.atlassian.net/wiki/spaces/CYB/pages/1079017579/Azure+AD+Audit
+
 AppAccountName="RADER_CNS_AzureAD_Audit"
 cns_webid="https://www.cybercns.com"
 credential_lifetime_years=10
@@ -237,11 +244,12 @@ function Output_Details () {
 }
 
 
-Login_Azure 
-Write_Manifest 
-Create_App 
-Create_App_Credential 
-Output_Details
+Login_Azure || exit 105
+Write_Manifest || exit 106
+Create_App || exit 107
+Create_App_Credential || exit 108
+Output_Details || exit 109
+
 
 
 
