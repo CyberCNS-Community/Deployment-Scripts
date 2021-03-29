@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Written by Tim Fournet 3/29/2021
+# Written by Tim Fournet tfournet@tfour.net 3/29/2021
 # This is a bash script, it can be run either from a Linux host, or from the Azure Cloud Shell.
 # To run from the cloud shell, use this command
 # curl https://raw.githubusercontent.com/CyberCNS-Community/Deployment-Scripts/main/AzureAD/Create-CyberCNSADAppRegistration.sh | sh
@@ -220,6 +220,7 @@ function Create_App () {
     appResult=$(az ad app create --display-name $AppAccountName --identifier $cns_webid --required-resource-accesses @$json_file)
     appId=$(echo $appResult | jq -r .appId)
     domain=$(echo $appResult | jq -r .publisherDomain)
+    rm -f $json_file 
 }
 
 function Create_App_Credential () {
