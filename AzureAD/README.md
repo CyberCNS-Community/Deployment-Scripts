@@ -2,7 +2,7 @@
 # Create-CyberCNSADAppRegistration.sh
 
 Written by Tim Fournet 3/29/2021
-This is a bash script, it can be run either from a Linux host, or from the Azure Cloud Shell.
+This is a bash script, it can be run either from a Linux host, or from the Azure Cloud Shell at https://portal.azure.com.
 To run from the cloud shell, use this command: 
 
 `curl https://raw.githubusercontent.com/CyberCNS-Community/Deployment-Scripts/main/AzureAD/Create-CyberCNSADAppRegistration.sh | sh`
