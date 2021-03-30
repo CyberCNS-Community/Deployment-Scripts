@@ -7,7 +7,7 @@
 # This will create an Azure AD App Registration with the permissions required, as outlined by the CyberCNS Documentation at 
 # https://cybercns.atlassian.net/wiki/spaces/CYB/pages/1079017579/Azure+AD+Audit
 
-AppAccountName="RADER_CNS_AzureAD_Audit"
+AppAccountName="CyberCNS_AzureAD_Audit"
 cns_webid="https://www.cybercns.com"
 credential_lifetime_years=10
 
@@ -22,7 +22,7 @@ function Login_Azure () {
     enabled=1
     gpgcheck=1
     gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/azure-cli.repo
-            sudo dnf -y install azure-cli 
+            sudo dnf -y install azure-cli || sudo yum -y install azure-cli 
         elif [[ $(which apt-get) ]]; then
             curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
         fi 
@@ -242,9 +242,24 @@ function Output_Details () {
     echo -e "\n\n"
     echo "If anything has gone wrong, you can delete this app by its ID with the following command:"
     echo " #    az ad app delete --id $appId"
+    echo -e "\nThis credential will expire $credential_lifetime_years years from now."
 }
 
+function Get_jq () {
+    if [[ ! $(which jq) ]]; then
+        if [[ -f /etc/redhat-release ]]; then
+            dnf -y install jq || yum -y install jq 
+        elif [[ $(which apt-get) ]]; then
+            apt-get -y install jq 
+        fi
+    fi
+    if [[ ! $(which jq) ]]; then
+        echo "Unable to to find or install the 'jq' utility. Please check with your OS to see how to install it."
+        exit 199
+    fi
+}
 
+Get-Jq
 Login_Azure || exit 105
 Write_Manifest || exit 106
 Create_App || exit 107
