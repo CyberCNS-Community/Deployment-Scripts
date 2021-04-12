@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Written by Tim Fournet tfournet@tfour.net 3/29/2021
 # This is a bash script, it can be run either from a Linux host, or from the Azure Cloud Shell.
@@ -259,7 +259,7 @@ function Get_jq () {
     fi
 }
 
-Get-Jq
+Get-jq
 Login_Azure || exit 105
 Write_Manifest || exit 106
 Create_App || exit 107
