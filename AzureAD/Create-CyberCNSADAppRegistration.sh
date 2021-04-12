@@ -259,7 +259,7 @@ function Get_jq () {
     fi
 }
 
-Get-jq
+Get_jq
 Login_Azure || exit 105
 Write_Manifest || exit 106
 Create_App || exit 107
