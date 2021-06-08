@@ -28,7 +28,7 @@ if ! (which docker-compose); then
   fi
 fi
 
-compose=$(which docker-compose)
+compose=$(which docker-compose || which podman-compose) 
 
 # Set docker daemon to run if system supports it
 if (which systemctl) ; then
