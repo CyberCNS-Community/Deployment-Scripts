@@ -19,7 +19,7 @@ cybercns_site_id=$2
 
 if ! (which docker-compose); then
   echo "Docker Compose was not found on your system. Attempting to install it using standard distro utils"
-  which dnf && dnf -y install dnf -y install epel-release && dnf -y install podman-compose curl
+  which dnf && dnf -y install dnf -y install epel-release && dnf -y install podman-compose curl && ln -s /usr/bin/podman-compose /usr/bin/docker-compose
   which yum && yum -y install docker docker-compose curl 
   which apt && apt-get -y install docker docker-compose curl
   if ! (which docker-compose); then 
@@ -28,7 +28,7 @@ if ! (which docker-compose); then
   fi
 fi
 
-compose=$(which docker-compose || which podman-compose) 
+compose=$(which docker-compose) 
 
 # Set docker daemon to run if system supports it
 if (which systemctl) ; then
