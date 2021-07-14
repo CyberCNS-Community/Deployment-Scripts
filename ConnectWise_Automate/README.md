@@ -1,18 +1,16 @@
 Import the CyberCNS_Agent_Install.xml file into your Automate instance  
 
+This script contains some Global Variables you will need to update (in the Globals and Parameters tab in CWA):
+* **cns-domain** - this will correspond to the URL of your CyberCNS Instance
+* **cybercns_clientId** - Your global CyberCNS Client ID (assigned to YOUR organization) 
+* **cybercns_clientSecret** - Your global CyberCNS Client Secret (assigned to YOUR organization)
+To locate the above identifiers, go to CyberCNS and press the 'Probe / Agent' Download button, and choose any of the options. The Client ID comes after the `-a` switch, and Client Secret comes after `-s`. 
 
-This script will create the following EDFs (Extra Data Fields):
+This script will create the following EDFs (Extra Data Fields) in a tab called "Security" (Feel free to change these to suit your preferences):
 * **Client**:
   * **CyberCNS** (Click to Enable CyberCNS for the client in general)     
-  * **CNS Company ID** (use the identifier from CyberCNS for the client)
-* **Location**:   
-  * **CyberCNS Location Identifier** (Use the identifier from CyberCNS for the site)
-  * **Deploy CyberCNS Lightweight Agent** (Click to enable LW Agent install to all computers on this site)
+  * **CNS Company ID** - Use the identifier from CyberCNS for the client. You get this from the 'Probe / Agent' download, after the `-s` switch.
+* **Computer**: 
+  * **CyberCNS Probe** - Will install the agent in Probe mode
 
 
-You will need to change the Global Variable for **cns-domain** in this script to match your CyberCNS Deployment.
-
-Here is what the script should look like:
-
-<img src="https://github.com/CyberCNS-Community/Deployment-Scripts/blob/main/ConnectWise_Automate/scriptview1.png">
-<img src="https://github.com/CyberCNS-Community/Deployment-Scripts/blob/main/ConnectWise_Automate/scriptview2.png">
