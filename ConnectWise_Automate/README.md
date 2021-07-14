@@ -1,3 +1,5 @@
+Instructions: 
+
 Import the CyberCNS_Agent_Install.xml file into your Automate instance  
 
 This script contains some Global Variables you will need to update (in the Globals and Parameters tab in CWA):
@@ -13,4 +15,4 @@ This script will create the following EDFs (Extra Data Fields) in a tab called "
 * **Computer**: 
   * **CyberCNS Probe** - Will install the agent in Probe mode
 
-
+Contect me, @Tim Fournet, in the CyberCNS slack for help. 
