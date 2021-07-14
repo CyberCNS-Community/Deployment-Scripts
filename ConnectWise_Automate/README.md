@@ -15,4 +15,9 @@ This script will create the following EDFs (Extra Data Fields) in a tab called "
 * **Computer**: 
   * **CyberCNS Probe** - Will install the agent in Probe mode
 
+Further details:
+* The script will automatically install as a probe if it's run on a Linux machine with the word 'perch' in the hostname.
+* Running the script with the 'uninstall' parameter will uninstall the agent.
+* Running with the 'force_reinstall' parameter will uninstall, and then reinstall the agent
+
 Contect me, @Tim Fournet, in the CyberCNS slack for help. 
