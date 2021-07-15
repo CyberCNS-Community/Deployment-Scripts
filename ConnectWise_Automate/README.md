@@ -1,4 +1,4 @@
-Import the CyberCNS_Agent_Install.xml file into your Automate instance  
+Import the `CyberCNS_Agent-Distributable.xml` file into your Automate instance  
 
 This script contains some Global Variables you will need to update (in the Globals and Parameters tab in CWA):
 * **cns-domain** - this will correspond to the URL of your CyberCNS Instance
