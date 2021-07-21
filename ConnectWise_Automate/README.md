@@ -9,7 +9,7 @@ To locate the above identifiers, go to CyberCNS and press the 'Probe / Agent' Do
 This script will create the following EDFs (Extra Data Fields) in a tab called "Security" (Feel free to change these to suit your preferences):
 * **Client**:
   * **CyberCNS** (Click to Enable CyberCNS for the client in general)     
-  * **CNS Company ID** - Use the identifier from CyberCNS for the client. You get this from the 'Probe / Agent' download, after the `-s` switch.
+  * **CNS Company ID** - Use the identifier from CyberCNS for the client. You get this from the 'Probe / Agent' download, after the `-c` switch. The Company ID also shows up in the Kibana dashboard as companyRef.id.keyword
 * **Computer**: 
   * **CyberCNS Probe** - Will install the agent in Probe mode
 
