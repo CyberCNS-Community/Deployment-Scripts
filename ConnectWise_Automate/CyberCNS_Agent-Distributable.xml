@@ -1,4 +1,4 @@
-<LabTech_Expansion
+﻿<LabTech_Expansion
 	Version="210.132"
 	Name="LabTech Script Expansion"
 	Type="PackedScript">
@@ -7,7 +7,7 @@
 			<Table>
 				<ScriptId>7832</ScriptId>
 				<FolderId>697</FolderId>
-				<ScriptName>CyberCNS_Agent-Distributable</ScriptName>
+				<ScriptName>CyberCNS_Agent-Distributable1</ScriptName>
 				<ScriptNotes>CyberCNS Agent Installation / Maintenance for v2</ScriptNotes>
 				<Permission>5,502,504,505,506,</Permission>
 				<EditPermission>5,504,505,506,516,</EditPermission>
@@ -16,7 +16,7 @@
 				<MaintenanceScript>0</MaintenanceScript>
 				<FunctionScript>0</FunctionScript>
 				<LicenseData>H4sIAAAAAAAEAFWPzQrCMBCE74LvkAdoyE+N2rLk4t/Fgqh43zZbyCUtaQv27aVFoZ6G2ZlvYeDqKwodHbFHC8+xJatAzAr3IRyaIfQUrQSxcHB6tz5ODNlz9A7HhBU4MmUSpqWWLM2Nzk3GbgWIRRceVfRt/6LY+SZMT/8P3/wyeGdxbyRusea0KVOuFJW81Oi4lNKlmO0MVtmPnwEQyynr1Qfpw2hR2gAAAA==</LicenseData>
-				<ScriptData>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</ScriptData>
+				<ScriptData>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</ScriptData>
 				<ScriptVersion>1</ScriptVersion>
 				<ScriptGuid>a850a6af-e4b3-11eb-b2ad-000d3a975ac9</ScriptGuid>
 				<ScriptFlags>0</ScriptFlags>
@@ -32,7 +32,7 @@
 					<Sort>40</Sort>
 					<NoBreak>0</NoBreak>
 					<FType>1</FType>
-					<Section>Security</Section>
+					<Section>RADER Security</Section>
 					<UnEditable>0</UnEditable>
 					<Collapsed>0</Collapsed>
 					<Fill></Fill>
@@ -55,7 +55,7 @@
 					<Sort>41</Sort>
 					<NoBreak>0</NoBreak>
 					<FType>0</FType>
-					<Section>Security</Section>
+					<Section>RADER Security</Section>
 					<UnEditable>0</UnEditable>
 					<Collapsed>0</Collapsed>
 					<Fill></Fill>
